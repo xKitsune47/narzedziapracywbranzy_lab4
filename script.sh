@@ -26,11 +26,18 @@ case $1 in
 				echo $0>>$fileName.txt
 				echo $today>>$fileName.txt
 			done
-		fi;;
+		fi
+	;;
 	"--help"|"-h")
 		echo "--date, -d - aktualna data i godzina"
 		echo "--logs, -l - log, mozna wybrac ilosc zapisywanych logow dopisujac liczbe, bazowo jest ich 100"
 		echo "--help, -h - wyswietla kazda komende"
+		echo "--init - klonuje repo do katalogu w ktorym zostal uruchomiony skrypt"
+	;;
+	"--init")
+		git clone https://github.com/xKitsune47/narzedziapracywbranzy_lab3
+		newPath=$(pwd)
+		echo "export PATH=\$PATH:$newPath">>~/.bashrc
 esac
 
 touch .gitignore
