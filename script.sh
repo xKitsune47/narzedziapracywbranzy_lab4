@@ -5,8 +5,8 @@ number=$2
 today=$(date)
 #wybierz operacje
 case $1 in
-	"--date")echo "$today";;
-	"--logs")
+	"--date"|"-d")echo "$today";;
+	"--logs"|"-l")
 		if [ $number -gt 0 ]
 		then
 			for logs in $(seq 1 $2)
@@ -27,6 +27,10 @@ case $1 in
 				echo $today>>$fileName.txt
 			done
 		fi;;
+	"--help"|"-h")
+		echo "--date, -d - aktualna data i godzina"
+		echo "--logs, -l - log, mozna wybrac ilosc zapisywanych logow dopisujac liczbe, bazowo jest ich 100"
+		echo "--help, -h - wyswietla kazda komende"
 esac
 
 touch .gitignore
