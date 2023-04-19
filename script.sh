@@ -7,7 +7,7 @@ today=$(date)
 case $1 in
 	"--date"|"-d")echo "$today";;
 	"--logs"|"-l")
-		if [ $number -gt 0 ]
+		if [[ $number -gt 0 ]]
 		then
 			for logs in $(seq 1 $2)
 			do
@@ -40,8 +40,8 @@ case $1 in
 		newPath=$(pwd)
 		echo "export PATH=\$PATH:$newPath">>~/.bashrc
 	;;
-	"--error")
-		if [ $number -gt 0 ]
+	"--error"|"-e")
+		if [[ $number -gt 0 ]]
 		then
 			for err in $(seq 1 $2)
 			do
